@@ -1,10 +1,13 @@
 // Layout.js
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { useState } from "react";
 import "./styles/HomePage.css";
+import './styles/Layout.css';
 
 const Layout = () => {
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const xQf = () => {
     const jD9 = atob("RGV2ZWxvcGVkIGJ5IFJhaGVlbGtoYW4gTG9oYW5p");
     const pVw = jD9.split("").reduce((t, c) => t + c.charCodeAt(0), 0);
@@ -18,54 +21,93 @@ const Layout = () => {
   return (
     <>
       {/* Header */}
-      <header>
-        <div className="logo ">
-          <span>TED</span>Talks
-        </div>
+<header>
+  <div className="logo">
+    <span>TED</span>Talks
+  </div>
 
-        <nav>
-          <ul>
-            <li>
-              <a href="/" className={window.location.pathname === "/" ? "active" : ""}>Home</a>
-            </li>
-            <li>
-              <a href="/explore" className={window.location.pathname === "/explore" ? "active" : ""}>Explore</a>
-            </li>
-            <li>
-              <a href="#" className={window.location.pathname === "/categories" ? "active" : ""}>Categories</a>
-            </li>
-            <li>
-              <a href="#" className={window.location.pathname === "/events" ? "active" : ""}>Events</a>
-            </li>
-            <li>
-              <a href="/about" className={window.location.pathname === "/about" ? "active" : ""}>About</a>
-            </li>
-            <li className="login-button-container center">
-              <a 
-                href="/login" 
-                className={`login-button ${window.location.pathname === "/login" ? "active" : window.location.pathname === "/signup" ? "active" : ""}`}
-              >
-                <svg 
-                  width="16" 
-                  height="16" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                  style={{paddingTop: "1px"}}
-                >
-                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                  <polyline points="10 17 15 12 10 7" />
-                  <line x1="15" y1="12" x2="3" y2="12" />
-                </svg>&nbsp;
-                Login
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+  {/* Mobile menu button - only visible on small screens */}
+  <div className="mobile-menu-button">
+    <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+      {isMenuOpen ? (
+        // X icon when menu is open
+        <svg 
+          width="24" 
+          height="24" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      ) : (
+        // Hamburger icon when menu is closed
+        <svg 
+          width="24" 
+          height="24" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+        >
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      )}
+    </button>
+  </div>
+
+  {/* Navigation menu - desktop visible by default, mobile controlled by state */}
+  <nav className={isMenuOpen ? "mobile-nav-open" : ""}>
+    <ul>
+      <li>
+        <a href="/" className={window.location.pathname === "/" ? "active" : ""}>Home</a>
+      </li>
+      <li>
+        <a href="/explore" className={window.location.pathname === "/explore" ? "active" : ""}>Explore</a>
+      </li>
+      <li>
+        <a href="/categories" className={window.location.pathname === "/categories" ? "active" : ""}>Categories</a>
+      </li>
+      <li>
+        <a href="/events" className={window.location.pathname === "/events" ? "active" : ""}>Events</a>
+      </li>
+      <li>
+        <a href="/about" className={window.location.pathname === "/about" ? "active" : ""}>About</a>
+      </li>
+      <li className="login-button-container center">
+        <a 
+          href="/login" 
+          className={`login-button ${window.location.pathname === "/login" ? "active" : window.location.pathname === "/signup" ? "active" : ""}`}
+        >
+          <svg 
+            width="16" 
+            height="16" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+            style={{paddingTop: "1px"}}
+          >
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+            <polyline points="10 17 15 12 10 7" />
+            <line x1="15" y1="12" x2="3" y2="12" />
+          </svg>&nbsp;
+          Login
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
       {/* Page content */}
       <div className="home-container">
         {/* Background Elements */}
@@ -158,10 +200,10 @@ const Layout = () => {
                 <a href="/explore" className={window.location.pathname === "/explore" ? "active" : ""}>Explore</a>
               </li>
               <li>
-                <a href="#" className={window.location.pathname === "/categories" ? "active" : ""}>Categories</a>
+                <a href="/categories" className={window.location.pathname === "/categories" ? "active" : ""}>Categories</a>
               </li>
               <li>
-                <a href="#" className={window.location.pathname === "/events" ? "active" : ""}>Events</a>
+                <a href="/events" className={window.location.pathname === "/events" ? "active" : ""}>Events</a>
               </li>
               <li>
                 <a href="/about" className={window.location.pathname === "/about" ? "active" : ""}>About</a>

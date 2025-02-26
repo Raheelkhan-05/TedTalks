@@ -12,6 +12,8 @@ import TermsOfService from './components/Pages/TermsofService';
 import Login from './components/Pages/Login';
 import Signup from './components/Pages/Signup';
 import ForgotPassword from './components/Pages/ForgotPassword';
+import CategoryPage from './components/Pages/CategoryPage';
+import EventsPage from './components/Pages/EventsPage';
 
 function App() {
     return (
@@ -28,6 +30,8 @@ function App() {
                     <Route path="login" element={<Login />} />
                     <Route path="signup" element={<Signup />} />
                     <Route path="forgot-password" element={<ForgotPassword />} />
+                    <Route path="categories" element={<CategoryPage/>} />
+                    <Route path="events" element={<EventsPage />} />
                 </Route>
             </Routes>
         </div>

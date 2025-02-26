@@ -390,7 +390,9 @@ const xQf = () => {
             </div>
           </section>
         )}
-        
+        <br/>
+        <br/>
+        <br/>
         {/* Recommended for You Section */}
         <section className="explore-explore-section explore-recommended-section explore-animate-section">
           <div className="explore-section-header">
@@ -401,7 +403,7 @@ const xQf = () => {
             {recommendedTalks.map(talk => (
               <div className="explore-talk-card" key={talk.id}>
                 <div className="explore-thumbnail-container">
-                  <img src={img} alt={talk.title} className="explore-talk-thumbnail" />
+                  <img src={img} alt={talk.title} className="explore-talk-thumbnail"/>
                   <div className="explore-play-overlay">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white">
                       <polygon points="5 3 19 12 5 21 5 3"></polygon>
@@ -414,7 +416,7 @@ const xQf = () => {
                   <p className="explore-talk-speaker">{talk.speaker}</p>
                   <div className="explore-talk-tags">
                     {talk.tags.map((tag, index) => (
-                      <span key={index} className="explore-tag">{tag}</span>
+                      <span key={index} className="category-talk-category-badge">{tag}</span>
                     ))}
                   </div>
                   <div className="explore-tag-views">
@@ -427,7 +429,7 @@ const xQf = () => {
                   </div>
                 </div>
                 <div className="explore-talk-hover-preview">
-                  <h4>Description</h4>
+                  <h4 style={{marginTop: '10px'}}>Description</h4>
                   <p>{talk.description}</p>
                 </div>
               </div>
@@ -465,7 +467,7 @@ const xQf = () => {
                   <p className="explore-talk-speaker">{talk.speaker}</p>
                   <div className="explore-talk-tags">
                     {talk.tags.map((tag, index) => (
-                      <span key={index} className="explore-tag">{tag}</span>
+                      <span key={index} className="category-talk-category-badge">{tag}</span>
                     ))}
                   </div>
                   <div className="explore-tag-views">
@@ -527,7 +529,7 @@ const xQf = () => {
                   <p className="explore-talk-speaker">{talk.speaker}</p>
                   <div className="explore-talk-tags">
                     {talk.tags.map((tag, index) => (
-                      <span key={index} className="explore-tag">{tag}</span>
+                      <span key={index} className="category-talk-category-badge">{tag}</span>
                     ))}
                   </div>
                   <div className="explore-tag-views">
@@ -540,7 +542,7 @@ const xQf = () => {
                   </div>
                 </div>
                 <div className="explore-talk-hover-preview">
-                  <h4>Description</h4>
+                  <h4 style={{marginTop:'25px'}}>Description</h4>
                   <p>{talk.description}</p>
                 </div>
               </div>
@@ -579,7 +581,7 @@ const xQf = () => {
                       <p>{talk.speaker}</p>
                       <div className="explore-talk-tags sm">
                         {talk.tags.map((tag, index) => (
-                          <span key={index} className="explore-tag">{tag}</span>
+                          <span key={index} className="category-talk-category-badge">{tag}</span>
                         ))}
                       </div>
                     </div>
@@ -665,7 +667,7 @@ const xQf = () => {
                   <p className="explore-talk-description">{talk.description}</p>
                   <div className="explore-talk-tags">
                     {talk.tags.map((tag, index) => (
-                      <span key={index} className="explore-tag">{tag}</span>
+                      <span key={index} className="category-talk-category-badge">{tag}</span>
                     ))}
                   </div>
                   <div className="explore-tag-views">
