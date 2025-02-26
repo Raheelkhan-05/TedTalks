@@ -70,7 +70,7 @@ const Layout = () => {
   <nav className={isMenuOpen ? "mobile-nav-open" : ""}>
     <ul>
       <li>
-        <a href="/" className={window.location.pathname === "/" ? "active" : ""}>Home</a>
+        <Link href="/" className={window.location.pathname === "/" ? "active" : ""}>Home</Link>
       </li>
       <li>
     <Link 
@@ -82,16 +82,16 @@ const Layout = () => {
     {/*<a href="/explore" className={window.location.pathname === "/explore" ? "active" : ""}>Explore</a>*/}
       </li>
       <li>
-        <a href="/categories" className={window.location.pathname === "/categories" ? "active" : ""}>Categories</a>
+        <Link href="/categories" className={window.location.pathname === "/categories" ? "active" : ""}>Categories</Link>
       </li>
       <li>
-        <a href="/events" className={window.location.pathname === "/events" ? "active" : ""}>Events</a>
+        <Link href="/events" className={window.location.pathname === "/events" ? "active" : ""}>Events</Link>
       </li>
       <li>
-        <a href="/about" className={window.location.pathname === "/about" ? "active" : ""}>About</a>
+        <Link href="/about" className={window.location.pathname === "/about" ? "active" : ""}>About</Link>
       </li>
       <li className="login-button-container center">
-        <a 
+        <Link 
           href="/login" 
           className={`login-button ${window.location.pathname === "/login" ? "active" : window.location.pathname === "/signup" ? "active" : ""}`}
         >
@@ -202,19 +202,19 @@ const Layout = () => {
             <h4>Quick Links</h4>
             <ul>
               <li>
-                <a href="/" className={window.location.pathname === "/" ? "active" : ""}>Home</a>
+                <Link href="/" className={window.location.pathname === "/" ? "active" : ""}>Home</Link>
               </li>
               <li>
-                <a href="/explore" className={window.location.pathname === "/explore" ? "active" : ""}>Explore</a>
+                <Link href="/explore" className={window.location.pathname === "/explore" ? "active" : ""}>Explore</Link>
               </li>
               <li>
-                <a href="/categories" className={window.location.pathname === "/categories" ? "active" : ""}>Categories</a>
+                <Link href="/categories" className={window.location.pathname === "/categories" ? "active" : ""}>Categories</Link>
               </li>
               <li>
-                <a href="/events" className={window.location.pathname === "/events" ? "active" : ""}>Events</a>
+                <Link href="/events" className={window.location.pathname === "/events" ? "active" : ""}>Events</Link>
               </li>
               <li>
-                <a href="/about" className={window.location.pathname === "/about" ? "active" : ""}>About</a>
+                <Link href="/about" className={window.location.pathname === "/about" ? "active" : ""}>About</Link>
               </li>
             </ul>
           </div>
@@ -223,19 +223,19 @@ const Layout = () => {
             <h4>Categories</h4>
             <ul>
               <li>
-                <a href="#">Technology</a>
+                <Link href="#">Technology</Link>
               </li>
               <li>
-                <a href="#">Science</a>
+                <Link href="#">Science</Link>
               </li>
               <li>
-                <a href="#">Business</a>
+                <Link href="#">Business</Link>
               </li>
               <li>
-                <a href="#">Psychology</a>
+                <Link href="#">Psychology</Link>
               </li>
               <li>
-                <a href="#">Education</a>
+                <Link href="#">Education</Link>
               </li>
             </ul>
           </div>
@@ -244,16 +244,16 @@ const Layout = () => {
             <h4>Support</h4>
             <ul>
               <li>
-                <a href="/contact" className={window.location.pathname === "/contact" ? "active" : ""}>Contact Us</a>
+                <Link href="/contact" className={window.location.pathname === "/contact" ? "active" : ""}>Contact Us</Link>
               </li>
               <li>
-                <a href="/faq" className={window.location.pathname === "/faq" ? "active" : ""}>FAQs</a>
+                <Link href="/faq" className={window.location.pathname === "/faq" ? "active" : ""}>FAQs</Link>
               </li>
               <li>
-                <a href="/policy" className={window.location.pathname === "/policy" ? "active" : ""}>Privacy Policy</a>
+                <Link href="/policy" className={window.location.pathname === "/policy" ? "active" : ""}>Privacy Policy</Link>
               </li>
               <li>
-                <a href="/terms" className={window.location.pathname === "/terms" ? "active" : ""}>Terms of Service</a>
+                <Link href="/terms" className={window.location.pathname === "/terms" ? "active" : ""}>Terms of Service</Link>
               </li>
             </ul>
           </div>
