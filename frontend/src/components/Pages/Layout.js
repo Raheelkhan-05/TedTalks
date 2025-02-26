@@ -1,15 +1,15 @@
 // Layout.js
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { useState } from "react";
 import "./styles/HomePage.css";
 import './styles/Layout.css';
 import { Link } from "react-router-dom";
  
-
 const Layout = () => {
-
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
   const xQf = () => {
     const jD9 = atob("RGV2ZWxvcGVkIGJ5IFJhaGVlbGtoYW4gTG9oYW5p");
     const pVw = jD9.split("").reduce((t, c) => t + c.charCodeAt(0), 0);
@@ -23,99 +23,94 @@ const Layout = () => {
   return (
     <>
       {/* Header */}
-<header>
-  <div className="logo">
-    <span>TED</span>Talks
-  </div>
+      <header>
+        <div className="logo">
+          <span>TED</span>Talks
+        </div>
 
-  {/* Mobile menu button - only visible on small screens */}
-  <div className="mobile-menu-button">
-    <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-      {isMenuOpen ? (
-        // X icon when menu is open
-        <svg 
-          width="24" 
-          height="24" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-        >
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      ) : (
-        // Hamburger icon when menu is closed
-        <svg 
-          width="24" 
-          height="24" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          strokeLinecap="round" 
-          strokeLinejoin="round"
-        >
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      )}
-    </button>
-  </div>
+        {/* Mobile menu button - only visible on small screens */}
+        <div className="mobile-menu-button">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? (
+              // X icon when menu is open
+              <svg 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            ) : (
+              // Hamburger icon when menu is closed
+              <svg 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            )}
+          </button>
+        </div>
 
-  {/* Navigation menu - desktop visible by default, mobile controlled by state */}
-  <nav className={isMenuOpen ? "mobile-nav-open" : ""}>
-    <ul>
-      <li>
-        <Link href="/" className={window.location.pathname === "/" ? "active" : ""}>Home</Link>
-      </li>
-      <li>
-    <Link 
-    to="/explore" 
-    className={window.location.pathname === "/explore" ? "active" : ""}
-  >
-    Explore
-  </Link>    
-    {/*<a href="/explore" className={window.location.pathname === "/explore" ? "active" : ""}>Explore</a>*/}
-      </li>
-      <li>
-        <Link href="/categories" className={window.location.pathname === "/categories" ? "active" : ""}>Categories</Link>
-      </li>
-      <li>
-        <Link href="/events" className={window.location.pathname === "/events" ? "active" : ""}>Events</Link>
-      </li>
-      <li>
-        <Link href="/about" className={window.location.pathname === "/about" ? "active" : ""}>About</Link>
-      </li>
-      <li className="login-button-container center">
-        <Link 
-          href="/login" 
-          className={`login-button ${window.location.pathname === "/login" ? "active" : window.location.pathname === "/signup" ? "active" : ""}`}
-        >
-          <svg 
-            width="16" 
-            height="16" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-            style={{paddingTop: "1px"}}
-          >
-            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-            <polyline points="10 17 15 12 10 7" />
-            <line x1="15" y1="12" x2="3" y2="12" />
-          </svg>&nbsp;
-          Login
-        </a>
-      </li>
-    </ul>
-  </nav>
-</header>
+        {/* Navigation menu - desktop visible by default, mobile controlled by state */}
+        <nav className={isMenuOpen ? "mobile-nav-open" : ""}>
+          <ul>
+            <li>
+              <Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link>
+            </li>
+            <li>
+              <Link to="/explore" className={location.pathname === "/explore" ? "active" : ""}>Explore</Link>
+            </li>
+            <li>
+              <Link to="/categories" className={location.pathname === "/categories" ? "active" : ""}>Categories</Link>
+            </li>
+            <li>
+              <Link to="/events" className={location.pathname === "/events" ? "active" : ""}>Events</Link>
+            </li>
+            <li>
+              <Link to="/about" className={location.pathname === "/about" ? "active" : ""}>About</Link>
+            </li>
+            <li className="login-button-container center">
+              <Link 
+                to="/login" 
+                className={`login-button ${location.pathname === "/login" || location.pathname === "/signup" ? "active" : ""}`}
+              >
+                <svg 
+                  width="16" 
+                  height="16" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                  style={{paddingTop: "1px"}}
+                >
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                  <polyline points="10 17 15 12 10 7" />
+                  <line x1="15" y1="12" x2="3" y2="12" />
+                </svg>&nbsp;
+                Login
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
       {/* Page content */}
       <div className="home-container">
         {/* Background Elements */}
@@ -202,19 +197,19 @@ const Layout = () => {
             <h4>Quick Links</h4>
             <ul>
               <li>
-                <Link href="/" className={window.location.pathname === "/" ? "active" : ""}>Home</Link>
+                <Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link>
               </li>
               <li>
-                <Link href="/explore" className={window.location.pathname === "/explore" ? "active" : ""}>Explore</Link>
+                <Link to="/explore" className={location.pathname === "/explore" ? "active" : ""}>Explore</Link>
               </li>
               <li>
-                <Link href="/categories" className={window.location.pathname === "/categories" ? "active" : ""}>Categories</Link>
+                <Link to="/categories" className={location.pathname === "/categories" ? "active" : ""}>Categories</Link>
               </li>
               <li>
-                <Link href="/events" className={window.location.pathname === "/events" ? "active" : ""}>Events</Link>
+                <Link to="/events" className={location.pathname === "/events" ? "active" : ""}>Events</Link>
               </li>
               <li>
-                <Link href="/about" className={window.location.pathname === "/about" ? "active" : ""}>About</Link>
+                <Link to="/about" className={location.pathname === "/about" ? "active" : ""}>About</Link>
               </li>
             </ul>
           </div>
@@ -223,19 +218,19 @@ const Layout = () => {
             <h4>Categories</h4>
             <ul>
               <li>
-                <Link href="#">Technology</Link>
+                <Link to="#">Technology</Link>
               </li>
               <li>
-                <Link href="#">Science</Link>
+                <Link to="#">Science</Link>
               </li>
               <li>
-                <Link href="#">Business</Link>
+                <Link to="#">Business</Link>
               </li>
               <li>
-                <Link href="#">Psychology</Link>
+                <Link to="#">Psychology</Link>
               </li>
               <li>
-                <Link href="#">Education</Link>
+                <Link to="#">Education</Link>
               </li>
             </ul>
           </div>
@@ -244,16 +239,16 @@ const Layout = () => {
             <h4>Support</h4>
             <ul>
               <li>
-                <Link href="/contact" className={window.location.pathname === "/contact" ? "active" : ""}>Contact Us</Link>
+                <Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>Contact Us</Link>
               </li>
               <li>
-                <Link href="/faq" className={window.location.pathname === "/faq" ? "active" : ""}>FAQs</Link>
+                <Link to="/faq" className={location.pathname === "/faq" ? "active" : ""}>FAQs</Link>
               </li>
               <li>
-                <Link href="/policy" className={window.location.pathname === "/policy" ? "active" : ""}>Privacy Policy</Link>
+                <Link to="/policy" className={location.pathname === "/policy" ? "active" : ""}>Privacy Policy</Link>
               </li>
               <li>
-                <Link href="/terms" className={window.location.pathname === "/terms" ? "active" : ""}>Terms of Service</Link>
+                <Link to="/terms" className={location.pathname === "/terms" ? "active" : ""}>Terms of Service</Link>
               </li>
             </ul>
           </div>
