@@ -4,6 +4,8 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import "./styles/HomePage.css";
 import './styles/Layout.css';
+import { Link } from "react-router-dom";
+ 
 
 const Layout = () => {
 
@@ -71,7 +73,13 @@ const Layout = () => {
         <a href="/" className={window.location.pathname === "/" ? "active" : ""}>Home</a>
       </li>
       <li>
-        <a href="/explore" className={window.location.pathname === "/explore" ? "active" : ""}>Explore</a>
+    <Link 
+    to="/explore" 
+    className={window.location.pathname === "/explore" ? "active" : ""}
+  >
+    Explore
+  </Link>    
+    {/*<a href="/explore" className={window.location.pathname === "/explore" ? "active" : ""}>Explore</a>*/}
       </li>
       <li>
         <a href="/categories" className={window.location.pathname === "/categories" ? "active" : ""}>Categories</a>
