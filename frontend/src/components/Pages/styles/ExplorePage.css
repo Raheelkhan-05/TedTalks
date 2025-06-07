@@ -1,0 +1,1070 @@
+/* Base Styles & Variables */
+:root {
+    --primary: #E62B1E;
+    --primary-dark: #c41912;
+    --secondary: #00A0D1;
+    --dark: #141414;
+    --darker: #0A0A0A;
+    --light: #FFFFFF;
+    --gray: #B3B3B3;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 230, 43, 30;
+    --background-end-rgb: 0, 160, 209;
+    --pop1: #ff007f;
+    --pop2: #ffcc00;
+    --pop3: #00ffcc;
+    --pop4: #9086ff;
+    --primary-rgb: 230, 43, 30;
+    --pop4-rgb: 144, 134, 255;
+  }
+    
+  .explore-explore-container{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+    position: relative;
+  }
+  
+  /* Explore Header Section */
+  .explore-explore-header{
+    text-align: center;
+    padding: 60px 0;
+    position: relative;
+  }
+  
+  .explore-explore-title{
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .explore-explore-title .explore-highlight{
+    background: linear-gradient(90deg, var(--primary) 0%, var(--pop4) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .explore-title-underline{
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--pop4) 100%);
+    margin: 20px auto;
+    border-radius: 2px;
+  }
+  
+  .explore-explore-subtitle{
+    color: var(--gray);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Search Bar */
+  .explore-search-container{
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .explore-search-input{
+    width: 100%;
+    padding: 1rem 3rem 1rem 1.5rem;
+    border-radius: 30px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--light);
+    font-size: 1rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .explore-search-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 2px var(--primary);
+  }
+  
+  .explore-search-button{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--gray);
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.3s ease;
+  }
+  
+  .explore-search-button:hover {
+    color: var(--primary);
+  }
+  
+  /* Section Styles */
+  /* Hidden State */
+.explore-explore-section {
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+ 
+/* Initial hidden state */
+.explore-animate-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Visible state triggered by Intersection Observer */
+.explore-section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  .explore-section-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .explore-section-header h2 {
+    -webkit-background-clip: text;
+    font-size: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+  }
+
+  .explore-section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #E62B1E;
+    border-radius: 2px;
+  }
+  
+  .explore-view-all{
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .explore-view-all:hover {
+    color: var(--primary);
+  }
+  
+  /* Talk Cards */
+  .explore-talks-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .explore-talk-card{
+    background: rgba(31, 31, 31, 0.6);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .explore-talk-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .info::after{
+    content: "RGV2ZWxvcGVkIGJ5IFJhaGVlbGtoYW4gTG9oYW5p";
+    display: none;
+  }
+
+  /* Default hidden state */
+.explore-talk-hover-preview {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 36%;
+  background: linear-gradient(to top, black, black, black, transparent);
+  color: var(--light);
+  padding: 12px 16px;
+  border-radius: 0 0 12px 12px;
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Show on hover */
+.explore-talk-card:hover .explore-talk-hover-preview {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Title styling */
+.explore-talk-hover-preview h4 {
+  font-size: 1rem;
+  padding-top: 5px;
+  background: linear-gradient(to top, black, black, black, transparent);
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--pop4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Description styling */
+.explore-talk-hover-preview p {
+  font-size: 0.85rem;
+  color: var(--light);
+  line-height: 1.4;
+  max-height: 5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+  
+  .explore-thumbnail-container{
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .explore-talk-thumbnail{
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .explore-talk-card:hover .explore-talk-thumbnail{
+    transform: scale(1.05);
+  }
+  
+  .explore-play-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .explore-talk-card:hover .explore-play-overlay{
+    opacity: 1;
+  }
+  
+  .explore-duration-badge{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--light);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  
+  .explore-talk-info{
+    padding: 1rem;
+  }
+  
+  .explore-talk-title{
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--light);
+  }
+  
+  .explore-talk-speaker{
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+  }
+  
+  .explore-talk-tags{
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+  
+  .explore-tag{
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--gray);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+  }
+  
+  .explore-tag-views{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .explore-views-count{
+    color: var(--gray);
+    font-size: 0.9rem;
+  }
+  
+  .explore-bookmark-btn{
+    background: none;
+    border: none;
+    color: var(--gray);
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.3s ease;
+  }
+  
+  .explore-bookmark-btn:hover {
+    color: var(--primary);
+  }
+  
+  /* Continue Watching Section */
+  .explore-continue-watching-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .explore-continue-card{
+    background: rgba(31, 31, 31, 0.6);
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .explore-progress-container{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .explore-progress-bar{
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.3s ease;
+  }
+  
+  /* Categories Section */
+  .explore-categories-container{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  
+  .explore-category-button{
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--light);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .explore-category-button.explore-active {
+    background: var(--primary) ;
+    color: white;
+    border: 2px solid var(--primary-dark);
+    font-weight: bold;
+}
+ 
+  .explore-category-button .explore-active{
+    background: var(--primary);
+  }
+  
+  .explore-category-button:hover {
+    background: rgba(230, 43, 30, 0.8);
+  }
+  
+  .explore-category-icon{
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Editor's Picks Section */
+  .explore-editors-picks-section .explore-talk-card{
+    background: linear-gradient(145deg, rgba(31, 31, 31, 0.8), rgba(31, 31, 31, 0.6));
+  }
+  
+  .explore-editor-badge{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--primary);
+    color: var(--light);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 2;
+  }
+  
+  /* Speakers Section */
+  .explore-speakers-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .explore-speaker-card{
+    background: rgba(31, 31, 31, 0.6);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .explore-speaker-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .explore-speaker-image{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+  }
+  
+  .explore-speaker-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .explore-speaker-specialty{
+    color: var(--gray);
+    font-size: 0.8rem;
+    padding: 10px 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .explore-talks-count{
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  
+  .explore-view-speaker-btn{
+    background: var(--primary);
+    color: var(--light);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .explore-view-speaker-btn:hover {
+    background: var(--primary-dark);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .explore-explore-container{
+      padding: 60px 15px 30px;
+    }
+    
+    .explore-talks-grid{
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .explore-explore-title{
+      font-size: 2.5rem;
+    }
+    
+    .explore-categories-container{
+      justify-content: center;
+    }
+    
+    .explore-category-button{
+      padding: 0.6rem 1rem;
+    }
+    
+    .explore-speakers-grid{
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .explore-explore-title{
+      font-size: 2rem;
+    }
+    
+    .explore-search-input{
+      padding: 0.8rem 2.5rem 0.8rem 1rem;
+    }
+    
+    .explore-talk-card{
+      margin: 0 -15px;
+      border-radius: 0;
+    }
+  }
+
+  
+/* Abstract Background Elements */
+.explore-bg-element {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Gradient Orbs */
+.orb {
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.2;
+  position: fixed;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+  animation: float 15s infinite alternate ease-in-out;
+}
+
+/* Trending Badge */
+.explore-trending-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--pop1), var(--pop4));
+  color: var(--light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  animation: pulse-glow 1.8s infinite ease-in-out;
+  z-index: 11;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explore-trending-badge svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--light);
+}
+
+/* Hover Effect */
+.explore-talk-card:hover .explore-trending-badge {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Pulse Glow Animation */
+@keyframes pulse-glow {
+  0% {
+      box-shadow: 0 0 6px rgba(var(--pop4-rgb), 0.8);
+  }
+  50% {
+      box-shadow: 0 0 16px rgba(var(--pop4-rgb), 0.4);
+  }
+  100% {
+      box-shadow: 0 0 6px rgba(var(--pop4-rgb), 0.8);
+  }
+}
+
+/* AI-Driven Discoveries Section */
+.explore-ai-section {
+  margin: 60px 0;
+}
+
+.explore-section-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .explore-section-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.explore-section-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.explore-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.explore-section-header h2 {
+  font-size: 2rem;
+  color: var(--light);
+}
+
+.explore-view-all:hover {
+  color: var(--primary);
+}
+
+/* Hidden Gems Vertical Cards */
+.explore-vertical-talks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.explore-vertical-talk-card {
+  display: flex;
+  background: rgba(31, 31, 31, 0.6);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.explore-vertical-talk-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(40, 40, 40, 0.7);
+}
+
+.explore-vertical-thumbnail {
+  width: 160px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.explore-vertical-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.explore-vertical-talk-card:hover .explore-play-overlay.sm {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.explore-vertical-info {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.explore-vertical-info h3 {
+  font-size: 1rem;
+  margin: 0 0 5px 0;
+  color: var(--light);
+}
+
+.explore-vertical-info p {
+  font-size: 0.9rem;
+  color: var(--primary);
+  margin: 0 0 8px 0;
+}
+
+.explore-talk-tags.sm {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.explore-talk-tags.sm .explore-tag {
+  padding: 3px 6px;
+  font-size: 0.75rem;
+}
+
+/* Surprise Me Section */
+.surprise-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.explore-surprise-container {
+  flex-grow: 1;
+  background: rgba(25, 25, 25, 0.7);
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 450px; /* Control the overall height */
+}
+
+.explore-surprise-btn {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--light);
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  align-self: center;
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.4);
+  margin-bottom: 5px; /* Reduce space after button */
+}
+
+.explore-surprise-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(var(--primary-rgb), 0.5);
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+}
+
+.explore-surprise-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.explore-surprise-btn:hover svg {
+  transform: rotate(90deg);
+}
+
+.explore-random-talk-result {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 5px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.explore-random-thumbnail {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  max-height: 270px; /* Control thumbnail height */
+}
+
+.explore-random-thumbnail img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.explore-random-talk-result:hover .explore-random-thumbnail img {
+  transform: scale(1.05);
+}
+
+.explore-random-info {
+  padding: 3px 0;
+}
+
+.explore-random-info h3 {
+  font-size: 1.1rem;
+  margin: 0 0 6px 0;
+  color: var(--light);
+}
+
+.explore-random-info p {
+  margin: 0 0 6px 0;
+  font-size: 0.85rem;
+}
+
+.explore-random-info p:first-of-type {
+  color: var(--primary);
+}
+
+.explore-random-description {
+  color: var(--gray);
+  line-height: 1.3;
+  margin-bottom: 10px;
+  max-height: 60px; /* Limit description height */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.explore-random-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.explore-watch-now-btn {
+  background: var(--primary);
+  color: var(--light);
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.explore-watch-now-btn:hover {
+  background: var(--primary-dark);
+}
+
+.explore-bookmark-btn.lg {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--gray);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.explore-bookmark-btn.lg:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--light);
+}
+
+/* Make the sections responsive */
+@media (max-width: 992px) {
+  .explore-vertical-thumbnail {
+    width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .explore-section-columns {
+    grid-template-columns: 1fr;
+  }
+  
+  .surprise-column {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .explore-vertical-talk-card {
+    flex-direction: column;
+  }
+  
+  .explore-vertical-thumbnail {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+  
+  .explore-random-actions {
+    flex-direction: column;
+  }
+  
+  .explore-bookmark-btn.lg, .explore-watch-now-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Editor's Picks Section */
+.explore-editors-picks-section {
+  margin: 60px 0;
+}
+
+.explore-editors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.explore-editor-pick-card {
+  background: rgba(31, 31, 31, 0.6);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.explore-editor-pick-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.explore-editor-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: linear-gradient(135deg, var(--pop2), #ff9900);
+  color: var(--dark);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(255, 204, 0, 0.3);
+}
+
+.explore-editor-badge svg {
+  stroke: var(--dark);
+}
+
+.explore-thumbnail-container.large {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.explore-thumbnail-container.large .explore-talk-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.explore-editor-pick-card:hover .explore-talk-thumbnail {
+  transform: scale(1.08);
+}
+
+/* Play overlay for editor's pick */
+.explore-editor-pick-card .explore-play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.explore-editor-pick-card:hover .explore-play-overlay {
+  opacity: 1;
+}
+
+.explore-editor-pick-info {
+  padding: 1.2rem;
+}
+
+.explore-editor-pick-info .explore-talk-title {
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--light);
+}
+
+.explore-editor-pick-info .explore-talk-speaker {
+  color: var(--primary);
+  margin: 0 0 0.8rem 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.explore-talk-description {
+  color: var(--gray);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.explore-editor-pick-info .explore-talk-tags {
+  margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .explore-editors-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .explore-thumbnail-container.large {
+    height: 180px;
+  }
+  
+  .explore-editor-badge {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+  
+  .explore-editor-pick-info {
+    padding: 1rem;
+  }
+  
+  .explore-editor-pick-info .explore-talk-title {
+    font-size: 1.1rem;
+  }
+}
+
+
+
+.tags-container {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents wrapping */
+  padding-bottom: 5px; /* Prevents scrollbar from covering tags */
+  scrollbar-width: thin; /* Custom scrollbar */
+  scrollbar-color: #ccc transparent; /* Light grey scrollbar */
+}
+
+.tags-container::-webkit-scrollbar {
+  height: 6px; /* Adjust scrollbar height */
+}
+
+.tags-container::-webkit-scrollbar-thumb {
+  background-color: #bbb; /* Scrollbar color */
+  border-radius: 10px;
+}
+
+.category-talk-category-badge {
+  background-color: #f3f3f3;
+  padding: 6px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  color: #333;
+  display: inline-block;
+  white-space: nowrap; /* Ensures single-line badges */
+}

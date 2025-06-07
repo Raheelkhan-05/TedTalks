@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "axios": "^1.8.4",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "firebase-admin": "^13.2.0",
+    "flask": "^0.2.10",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.4",
+    "puppeteer": "^24.0.0"
+  }
+}
