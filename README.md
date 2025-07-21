@@ -4,22 +4,6 @@ A full-stack, AI-powered platform that offers personalized TED Talks recommendat
 
 ---
 
-## 📌 Table of Contents
-
-- [Features](#features)
-- [Architecture](#architecture)
-- [Tech Stack](#tech-stack)
-- [Machine Learning Approach](#machine-learning-approach)
-- [Functional Modules](#functional-modules)
-- [Security](#security)
-- [Setup & Installation](#setup--installation)
-- [API Endpoints](#api-endpoints)
-- [Future Enhancements](#future-enhancements)
-- [Authors](#authors)
-- [License](#license)
-
----
-
 ## ✨ Features
 
 ### 👤 User-Facing Features
