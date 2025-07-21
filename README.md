@@ -1,4 +1,4 @@
-# 🎤 TED Talks Recommendation System
+# TED Talks Recommendation System
 A full-stack, AI-powered platform that offers personalized TED Talks recommendations based on semantic understanding of transcripts using transformer models. The system intelligently matches users with relevant TED Talks based on their watch history, interests, and interaction patterns.
 
 ## 📋 Table of Contents
