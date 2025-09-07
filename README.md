@@ -1,7 +1,7 @@
 # TED Talks Recommendation System
 A full-stack, AI-powered platform that offers personalized TED Talks recommendations based on semantic understanding of transcripts using transformer models. The system intelligently matches users with relevant TED Talks based on their watch history, interests, and interaction patterns.
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Features](#-features)
 - [Architecture](#-architecture)
@@ -13,59 +13,59 @@ A full-stack, AI-powered platform that offers personalized TED Talks recommendat
 - [Contributing](#-contributing)
 - [Acknowledgements](#-acknowledgements)
 
-## ✨ Features
+## Features
 
-### 👤 User-Facing Features
+### User-Facing Features
 
-- **🔍 Advanced Search & Explore**
+- **Advanced Search & Explore**
   - Search by title, tags, description, and speakers
   - Category-based filtering (Innovation, Business, Design, etc.)
   - Tag-based discovery system
   
-- **🧠 Personalized AI Recommendations**
+- **Personalized AI Recommendations**
   - Semantic similarity-based suggestions using DistilBERT
   - Machine learning-powered content matching
   - Recommendations based on watch history and user preferences
   
-- **📈 Content Discovery**
+- **Content Discovery**
   - Trending Talks
   - Editor's Picks
   - Hidden Gems
   - "Surprise Me" mode for random discovery
   
-- **📅 Events & Calendar**
+- **Events & Calendar**
   - TEDx Event calendar with upcoming and past events
   - Event-based talk categorization
   
-- **🎥 Enhanced Viewing Experience**
+- **Enhanced Viewing Experience**
   - Integrated video player with full metadata
   - Related talk suggestions
   - Watch progress tracking
   
-- **🕵️ Personal Dashboard**
+- **Personal Dashboard**
   - Complete watch history tracking
   - History management (view/delete entries)
   - Personalized user experience
 
 > **Note:** Login is required to access personalized features and maintain watch history.
 
-### 🛠 Admin Panel Features
+### Admin Panel Features
 
-- **🔒 Secure Admin Dashboard**
+- **Secure Admin Dashboard**
   - Role-based access control
   - Protected routes with unauthorized access prevention
   
-- **👥 User Management**
+- **User Management**
   - View and manage all registered users
   - User account administration
   - Individual user watch history monitoring
   
-- **🎥 Content Moderation**
+- **Content Moderation**
   - Block/Unblock TED Talks
   - Content management and curation
   - System-wide content control
 
-## 🧱 Architecture
+## Architecture
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
@@ -94,7 +94,7 @@ A full-stack, AI-powered platform that offers personalized TED Talks recommendat
 - **Database & Auth:** Firebase handles authentication and data storage
 - **AI:** DistilBERT processes semantic understanding for recommendations
 
-## 💻 Tech Stack
+## Tech Stack
 
 | Component | Technology | Purpose |
 |-----------|------------|---------|
@@ -107,7 +107,7 @@ A full-stack, AI-powered platform that offers personalized TED Talks recommendat
 | **Authentication** | Firebase Auth | User authentication and authorization |
 | **Deployment** | Firebase Hosting, Vercel, Heroku | Cloud hosting and deployment |
 
-## 🤖 Machine Learning Approach
+## Machine Learning Approach
 
 ### Model Architecture
 - **Primary Model:** DistilBERT (Distilled BERT)
@@ -125,7 +125,7 @@ A full-stack, AI-powered platform that offers personalized TED Talks recommendat
 5. **Storage Optimization:** Precomputed embeddings stored in `.pkl` files for fast retrieval
 
 
-## 🚀 Installation
+## Installation
 
 ### 1. Clone the Repository
 
@@ -182,7 +182,7 @@ node server.js
 ```
 
 
-## 🎯 Usage
+## Usage
 
 ### For Regular Users
 
@@ -222,7 +222,7 @@ node server.js
    - Manage content visibility
    - Curate editor's picks and featured content
 
-## 📚 API Documentation
+## API Documentation
 
 ### Authentication
 All API endpoints require Firebase JWT tokens in the Authorization header:
@@ -251,7 +251,7 @@ DELETE /admin/users/:userId
 ```
 
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions to improve the TED Talks Recommendation System! Here's how you can help:
 
@@ -278,7 +278,7 @@ We welcome contributions to improve the TED Talks Recommendation System! Here's 
 - **Testing:** Unit tests, integration tests
 - **DevOps:** Deployment automation, monitoring
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 We extend our gratitude to the following:
 
