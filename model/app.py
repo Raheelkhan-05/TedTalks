@@ -19,6 +19,9 @@ df = pd.read_csv("TED_Talk_Processed.csv")
 
 CORS(app)
 
+@app.route('/health', methods=['GET'])
+def health():
+    return jsonify({"status": "healthy"}), 200
 
 # Convert 'talks__tags' column to a list of tags
 df["talks__tags"] = df["talks__tags"].apply(lambda x: ast.literal_eval(x) if isinstance(x, str) else [])
