@@ -12,7 +12,7 @@ const CategoryPage = () => {
   const selectedCategory = location.state?.selectedCategory || "all";
   const queryParams = new URLSearchParams(location.search);
   const tagFromURL = queryParams.get("tag") || "all";
-  const FLASK_API = "http://localhost:8000";
+  const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
   const { categoryId } = useParams();
   const [topCategories, setTopCategories] = useState([]);
 
@@ -41,7 +41,7 @@ const CategoryPage = () => {
 
   // Fetch TED Talks by Topic
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/talks_by_topic?topic=${activeCategory}`)
+    axios.get(`${BACKEND_API}/api/talks_by_topic?topic=${activeCategory}`)
       .then((res) => setFilteredTalks(res.data))
       .catch((err) => console.error("API Error:", err));
   }, [activeCategory]);
@@ -49,7 +49,7 @@ const CategoryPage = () => {
   // Fetch Featured Talk when "All" is selected
   useEffect(() => {
     if (activeCategory === "all") {
-      axios.get("http://localhost:8000/api/featured_talk")
+      axios.get(`${BACKEND_API}/api/featured_talk`)
         .then((res) => setFeaturedTalk(res.data))
         .catch((err) => console.error("API Error:", err));
     }
@@ -57,7 +57,7 @@ const CategoryPage = () => {
 
     // Fetch Top Categories
     useEffect(() => {
-      axios.get("http://localhost:8000/api/top_topics")
+      axios.get(`${BACKEND_API}/api/top_topics`)
         .then((res) => setTopCategories(res.data.top_topics))
         .catch((err) => console.error("API Error:", err));
     }, []);
@@ -65,7 +65,7 @@ const CategoryPage = () => {
     useEffect(() => {
       setActiveCategory(tagFromURL); // Update state when category changes
   
-      axios.get(`${FLASK_API}/talks_by_topic?topic=${selectedCategory}`)
+      axios.get(`${BACKEND_API}/talks_by_topic?topic=${selectedCategory}`)
         .then((res) => setFilteredTalks(res.data))
         .catch((err) => console.error("API Error:", err));
     }, [tagFromURL]);

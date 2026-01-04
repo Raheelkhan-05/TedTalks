@@ -23,9 +23,11 @@ const DiscoverByTopic = () => {
     const [talks, setTalks] = useState([]);
     const [showAll, setShowAll] = useState(false);
 
+    const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
+
     // Fetch top topics & all topics
     useEffect(() => {
-        axios.get("http://localhost:8000/api/top_topics")
+        axios.get(`${BACKEND_API}/api/top_topics`)
             .then((res) => {
                 setTopCategories(res.data.top_topics);
                 setAllCategories(res.data.all_topics);
@@ -35,7 +37,7 @@ const DiscoverByTopic = () => {
 
     // Fetch talks by topic
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/talks_by_topic?topic=${activeCategory}`)
+        axios.get(`${BACKEND_API}/api/talks_by_topic?topic=${activeCategory}`)
             .then((res) => setTalks(res.data))
             .catch((err) => console.error("API Error:", err));
     }, [activeCategory]);

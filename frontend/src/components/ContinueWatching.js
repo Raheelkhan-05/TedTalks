@@ -30,6 +30,8 @@ const ContinueWatching = () => {
     const [user] = useAuthState(auth);
     const [continueWatching, setContinueWatching] = useState([]);
 
+    const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
+
     useEffect(() => {
         if (!user) return;
 
@@ -46,7 +48,7 @@ const ContinueWatching = () => {
                     return;
                 }
 
-                const { data } = await axios.get("http://localhost:8000/api/all_talks");
+                const { data } = await axios.get(`${BACKEND_API}/api/all_talks`);
                 const allTalks = data.talks || [];
 
                 console.log("Fetched TED Talks:", allTalks.length);

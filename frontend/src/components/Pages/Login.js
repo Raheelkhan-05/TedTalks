@@ -14,6 +14,7 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const [isCheckingRecommendations, setIsCheckingRecommendations] = useState(false);
+  const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
 
 // For email/password login
 const handleSubmit = async (e) => {
@@ -50,7 +51,7 @@ const handleSubmit = async (e) => {
           
           if (watchedTalks.length > 0) {
             // User has watch history, check for recommendations
-            const { data } = await axios.post("http://localhost:8000/api/recommendations", {
+            const { data } = await axios.post(`${BACKEND_API}/api/recommendations`, {
               watched_talks: watchedTalks
             });
             
@@ -130,7 +131,7 @@ const handleGoogleSignIn = async () => {
           
           if (watchedTalks.length > 0) {
             // User has watch history, check for recommendations
-            const { data } = await axios.post("http://localhost:8000/api/recommendations", {
+            const { data } = await axios.post(`${BACKEND_API}/api/recommendations`, {
               watched_talks: watchedTalks
             });
             

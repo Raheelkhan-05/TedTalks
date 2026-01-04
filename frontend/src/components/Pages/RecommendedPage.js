@@ -19,6 +19,8 @@ const RecommendedPage = () => {
     });
     const [isLoadMoreLoading, setIsLoadMoreLoading] = useState(false);
 
+    const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
+
     // Show loading message based on current loading state
     const getLoadingMessage = () => {
         if (loadingState.user) return "Verifying your account...";
@@ -81,7 +83,7 @@ const RecommendedPage = () => {
                 // Set recommendations loading state
                 setLoadingState(prev => ({ ...prev, recommendations: true }));
 
-                const { data } = await axios.post("http://localhost:8000/api/recommendations", {
+                const { data } = await axios.post(`${BACKEND_API}/api/recommendations`, {
                     watched_talks: watchedTalks
                 });
 

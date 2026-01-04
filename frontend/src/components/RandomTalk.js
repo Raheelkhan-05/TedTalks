@@ -13,9 +13,11 @@ const RandomTalk = () => {
     const [randomTalk, setRandomTalk] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
+
     const getRandomTalk = () => {
         setLoading(true);
-        axios.get("http://localhost:8000/api/random_talk")
+        axios.get(`${BACKEND_API}/api/random_talk`)
             .then((res) => {
                 setRandomTalk(res.data);
                 setLoading(false);

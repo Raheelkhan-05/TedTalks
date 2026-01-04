@@ -36,6 +36,8 @@ const HistoryPage = () => {
     const navigate = useNavigate();
     const sectionRef = useRef(null);
 
+    const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
+
     useEffect(() => {
         const fetchHistory = async () => {
             try {
@@ -45,7 +47,7 @@ const HistoryPage = () => {
 
                 const watchedTalkIds = historySnapshot.docs.map((doc) => doc.id);
                 console.log("Fetched watched talk IDs:", watchedTalkIds);
-                const { data } = await axios.get("http://localhost:8000/api/all_talks");
+                const { data } = await axios.get(`${BACKEND_API}/api/all_talks`);
                 const allTalks = data.talks || [];
 
                 const filteredTalks = allTalks.filter((talk) =>

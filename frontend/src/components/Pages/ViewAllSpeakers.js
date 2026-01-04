@@ -9,10 +9,13 @@ const ViewAllSpeakers = () => {
   const [visibleSpeakers, setVisibleSpeakers] = useState(6);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+
+  const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
+
   useEffect(() => {
     const fetchSpeakers = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/api/speakers");
+            const response = await axios.get(`${BACKEND_API}/api/speakers`);
             setSpeakers(response.data.speakers);
         } catch (error) {
             console.error("Error fetching speakers:", error);

@@ -25,6 +25,8 @@ const VideoPlayerPage = () => {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
 
+  const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
+
   
   const [user] = useAuthState(auth);
   const [watchedDuration, setWatchedDuration] = useState(0);
@@ -77,13 +79,13 @@ const VideoPlayerPage = () => {
         setVideoError(null);
         
         // Fetch talk details
-        const talkResponse = await axios.get(`http://localhost:8000/api/talk/${talkId}`);
+        const talkResponse = await axios.get(`${BACKEND_API}/api/talk/${talkId}`);
         const talkData = talkResponse.data.talk;
         setCurrentTalk(talkData);
 
         // Fetch recommended talks
         try {
-          const recommendedResponse = await axios.post("http://localhost:8000/api/recommendations", {
+          const recommendedResponse = await axios.post(`${BACKEND_API}/api/recommendations`, {
             watched_talks: talkId  // Make sure this is defined and contains talk IDs
             
           });

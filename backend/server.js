@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.use(bodyParser.json());
 
-const FLASK_API = "http://127.0.0.1:5000";  // Flask server URL
+const FLASK_API = process.env.REACT_APP_FLASK_API || "http://127.0.0.1:5000";  // Flask server URL
 
 // API endpoint to update user password
 // Password update endpoint

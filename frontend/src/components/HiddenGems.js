@@ -18,9 +18,10 @@ const formatViews = (views) => {
 
 const HiddenGems = () => {
     const [hiddenGems, setHiddenGems] = useState([]);
+    const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
 
     useEffect(() => {
-        axios.get("http://localhost:8000/api/hidden_gems")
+        axios.get(`${BACKEND_API}/api/hidden_gems`)
             .then((res) => setHiddenGems(res.data))
             .catch((err) => console.error("API Error:", err));
     }, []);

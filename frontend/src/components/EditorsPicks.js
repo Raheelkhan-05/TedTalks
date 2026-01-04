@@ -19,8 +19,10 @@ const formatViews = (views) => {
 const EditorsPicks = () => {
     const [editorsPicks, setEditorsPicks] = useState([]);
 
+    const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
+
     useEffect(() => {
-        axios.get("http://localhost:8000/api/editors_picks")
+        axios.get(`${BACKEND_API}/api/editors_picks`)
             .then((res) => setEditorsPicks(res.data))
             .catch((err) => console.error("API Error:", err));
     }, []);

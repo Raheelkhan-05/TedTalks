@@ -24,7 +24,7 @@ const EventsPage = () => {
   const [hasMore, setHasMore] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const FLASK_API = "http://127.0.0.1:5000"; // Flask API endpoint
+  const FLASK_API = process.env.REACT_APP_FLASK_API || "http://127.0.0.1:5000"; // Flask API endpoint
   
   // This effect only runs when the filter changes, not when page changes
   useEffect(() => {

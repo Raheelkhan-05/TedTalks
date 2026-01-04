@@ -9,6 +9,7 @@ const RecommendedSection = () => {
     const [user] = useAuthState(auth);
     const [recommendedTalks, setRecommendedTalks] = useState([]);
     const navigate = useNavigate();
+    const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
 
     useEffect(() => {
         console.log("🔥 useEffect triggered!");
@@ -39,7 +40,7 @@ const RecommendedSection = () => {
                     return;
                 }
 
-                const { data } = await axios.post("http://localhost:8000/api/recommendations", {
+                const { data } = await axios.post(`${BACKEND_API}/api/recommendations`, {
                     watched_talks: watchedTalks
                 });
 

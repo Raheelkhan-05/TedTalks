@@ -27,6 +27,8 @@ const ExplorePage = () => {
   const [inputQuery, setInputQuery] = useState("");
   const navigate = useNavigate();
 
+  const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
+
   const handleSearch = () => {
     if (inputQuery.trim()) {
       navigate(`/search-results?query=${encodeURIComponent(inputQuery)}`);
@@ -140,7 +142,7 @@ const ExplorePage = () => {
 
   useEffect(() => {
     // Fetch speakers from API
-    axios.get("http://localhost:8000/api/speakers")  // Adjust based on your server URL
+    axios.get(`${BACKEND_API}/api/speakers`)  // Adjust based on your server URL
       .then((response) => {
         const speakersData = response.data.speakers.slice(0, 4); // Get only first 4 speakers
         setFeaturedSpeakers(speakersData);

@@ -25,9 +25,10 @@ const shortenDescription = (desc) => {
 
 const TrendingSection = () => {
     const [trendingTalks, setTrendingTalks] = useState([]);
+    const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
 
     useEffect(() => {
-        axios.get("http://localhost:8000/api/trending")
+        axios.get(`${BACKEND_API}/api/trending`)
             .then((res) => {
                 console.log("API Response:", res.data);
                 setTrendingTalks(res.data.talks || []);

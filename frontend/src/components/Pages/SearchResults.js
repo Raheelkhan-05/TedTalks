@@ -13,6 +13,8 @@ const SearchResults = () => {
     const [loading, setLoading] = useState(false);
     const [count, setCount] = useState(0);
     
+    const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
+    
     // New state for pagination
     const [visibleResults, setVisibleResults] = useState(10);
 
@@ -23,7 +25,7 @@ const SearchResults = () => {
                 // Clear previous results when starting a new search
                 setResults([]);
                 
-                const response = await axios.get(`http://localhost:8000/search?query=${encodeURIComponent(query)}`);
+                const response = await axios.get(`${BACKEND_API}/search?query=${encodeURIComponent(query)}`);
                 if (response.data.results) {
                     setResults(response.data.results);
                     setCorrectedQuery(response.data.corrected_query || query);

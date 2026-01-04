@@ -30,6 +30,8 @@ const AdminPanel = () => {
   const [mergedTalks, setMergedTalks] = useState([]);
   const [talkFilterOption, setTalkFilterOption] = useState("all"); // "all", "available", "blocked"
 
+  const BACKEND_API = process.env.REACT_APP_BACKEND_API || "http://localhost:8000";
+
   // Add these state variables at the top of your component with other state variables
   const [userSearchQuery, setUserSearchQuery] = useState("");
   const [talkSearchQuery, setTalkSearchQuery] = useState("");
@@ -126,7 +128,7 @@ const AdminPanel = () => {
   // Fetch all talks
   const fetchTalks = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/all_talks");
+      const response = await fetch(`${BACKEND_API}/api/all_talks`);
       const data = await response.json();
       setTalks(data.talks || []);
     } catch (error) {
@@ -228,7 +230,7 @@ useEffect(() => {
       const watchedTalkIds = watchedTalks.map(item => item.talkId);
       
       try {
-        const response = await fetch("http://localhost:8000/api/all_talks");
+        const response = await fetch(`${BACKEND_API}/api/all_talks`);
         const data = await response.json();
         const allTalks = data.talks || [];
         
@@ -293,7 +295,7 @@ useEffect(() => {
       // First, get the user's email by replacing underscores with dots
       const userEmail = userId.replace(/_/g, ".");
       
-      const response = await fetch('http://localhost:8000/api/update_password', {
+      const response = await fetch(`${BACKEND_API}/api/update_password`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

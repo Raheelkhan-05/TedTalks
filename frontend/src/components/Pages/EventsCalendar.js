@@ -9,7 +9,7 @@ const EventsCalendar = ({ event }) => {
   const [showPicker, setShowPicker] = useState(false);
   const pickerRef = React.useRef();
   const [events, setEvents] = useState([]); // Store all events for calendar display
-  const FLASK_API = "http://127.0.0.1:5000";  // Flask server URL
+  const FLASK_API = process.env.REACT_APP_FLASK_API || "http://127.0.0.1:5000";  // Flask server URL
   useEffect(() => {
     async function fetchEvents() {
       try {
