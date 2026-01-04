@@ -8,6 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(bodyParser.json());
+require("dotenv").config();
 
 const FLASK_API = process.env.REACT_APP_FLASK_API || "http://127.0.0.1:5000";  // Flask server URL
 
@@ -48,7 +49,9 @@ app.post('/api/update_password', async (req, res) => {
     }
   });
   
-var serviceAccount = require("./ttsdk.json");
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+
+serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, "\n");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
